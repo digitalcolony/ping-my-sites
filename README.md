@@ -1,2 +1,3 @@
-# ping-my-sites
-NodeJS code that pings my websites and sends me an email is one is down.
+# Ping My Sites
+
+NodeJS code that pings my websites and sends me an email if one is down.

@@ -1,0 +1,12 @@
+{
+	"sites": [
+		"google.com",
+		"aol.com",
+		"yahoo.com",
+		"some-site-that-is-down.info"
+	],
+	"email_settings": {
+		"EMAIL": "",
+		"EMAIL_PASSWORD": ""
+	}
+}
