@@ -3,7 +3,7 @@ const email = require("./email");
 
 require("./config/config");
 const hosts = process.env["SITES"].split(",");
-
+const slow = process.env["SLOW"];
 let pingReport = "";
 
 async function pingSites() {
@@ -15,6 +15,8 @@ async function pingSites() {
 			let res = await ping.promise.probe(host);
 			if (res.alive === false) {
 				pingReport += `${host} is down. \n`;
+			} else if (res.time / 1000 > slow) {
+				pingReport += `${host} is slow: ${res.time / 1000} seconds.\n`;
 			}
 		}
 		if (pingReport !== "") email(pingReport);

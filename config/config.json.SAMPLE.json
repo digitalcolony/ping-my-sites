@@ -1,10 +1,8 @@
 {
-	"sites": [
-		"google.com",
-		"aol.com",
-		"yahoo.com",
-		"some-site-that-is-down.info"
-	],
+	"sites": ["google.com", "aol.com", "yahoo.com", "192.168.1.1"],
+	"seconds": {
+		"slow": "2"
+	},
 	"email_settings": {
 		"EMAIL": "",
 		"EMAIL_PASSWORD": ""
