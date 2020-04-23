@@ -3,7 +3,8 @@ const email = require("./email");
 
 require("./config/config");
 const hosts = process.env["SITES"].split(",");
-const slow = process.env["SLOW"];
+let slow = process.env["SLOW"];
+if (!isNaN(slow)) slow = 2; //if slow is not defined use 2 seconds
 let pingReport = "";
 
 async function pingSites() {
