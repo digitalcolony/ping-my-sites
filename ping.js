@@ -5,12 +5,13 @@ require("./config/config");
 const hosts = process.env["SITES"].split(","); // use 192.168.1.1 to test a down site
 const slow_seconds = 2;
 const attempts = 2;
-const seconds_between_attempts = 20;
+const seconds_between_attempts = 5;
 
 let pingSitesCount = 0;
-let pingReport = "";
+let pingReportFull = "";
 
 async function pingSites() {
+	let pingReport = "";
 	pingSitesCount++;
 	// if Google is "down", then you probably aren't connected.
 	// Only test hosts array if Google is up.
@@ -25,8 +26,9 @@ async function pingSites() {
 			}
 		}
 		if (pingReport !== "") {
+			pingReportFull += pingReport;
 			if (pingSitesCount >= attempts) {
-				email(pingReport);
+				email(pingReportFull);
 			} else {
 				pingReport += `--- waiting ${seconds_between_attempts} seconds ---\n`;
 				setTimeout(() => {
