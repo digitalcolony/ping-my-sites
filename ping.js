@@ -5,7 +5,7 @@ require("./config/config");
 const hosts = process.env["SITES"].split(","); // use 192.168.1.1 to test a down site
 const slow_seconds = 2;
 const attempts = 2;
-const seconds_between_attempts = 5;
+const seconds_between_attempts = 20;
 
 let pingSitesCount = 0;
 let pingReportFull = "";
